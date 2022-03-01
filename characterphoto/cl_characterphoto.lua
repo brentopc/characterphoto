@@ -11,17 +11,19 @@ CreateThread(function()
 
         if pluginConfig.enabled then
 		
-			RegisterCommand(pluginConfig.photoCommandName, function(args, rawCommand)		
-				local result = exports[pluginConfig.headshotResourceName]:getBase64(PlayerPedId())
-				if result.success then					
-					TriggerServerEvent("SonoranCAD::characterphoto:SaveCharacterPhoto", result.base64)
-					debugLog("Saved character headshot: "..tostring(resp))
-				else
-					debugLog("Character headshot error: "..tostring(result.error))					
-				end
-			end)
-			
-        end
+		RegisterCommand(pluginConfig.photoCommandName, function(args, rawCommand)		
+			local result = exports[pluginConfig.headshotResourceName]:getBase64(PlayerPedId())
+			if result.success then					
+				TriggerServerEvent("SonoranCAD::characterphoto:SaveCharacterPhoto", result.base64)
+				debugLog("Saved character headshot: "..tostring(resp))
+			else
+				debugLog("Character headshot error: "..tostring(result.error))					
+			end
+		end)
+
+		TriggerEvent('chat:addSuggestion', '/'..pluginConfig.photoCommandName, "Set your currently selected, or most recently selected, character's image in CAD to your current ped.")
+
+	end
 		
     end) 
 end)
