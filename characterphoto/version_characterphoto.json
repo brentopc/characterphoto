@@ -1,0 +1,7 @@
+{
+    "version": "1.0",
+    "check_url": "https://raw.githubusercontent.com/brentopc/characterphoto/master/characterphoto/version_characterphoto.json",
+    "download_url": "https://github.com/brentopc/characterphoto/",
+    "configVersion": "1.0",
+    "pluginDepends": [{ "name": "characterphoto", "version": "1.0", "critical": true }]
+}
